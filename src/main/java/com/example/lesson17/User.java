@@ -38,6 +38,17 @@ public class User {
     inverseJoinColumns = @JoinColumn(name="role_id"))
     private Collection<Role> roles;
 
+    public User() {
+    }
+
+    public User(String email, String password, String firstName, String lastName, boolean enabled, String username) {
+        this.email = email;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.enabled = enabled;
+        this.username = username;
+    }
 
     public long getId() {
         return id;
@@ -56,12 +67,7 @@ public class User {
     }
 
     public String getPassword() {
-        // I cheated... convert the password to a bcrypt password coming out.
-        // Stored in Db in clear text. Don't try this in production.
-        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        String hashedPassword = passwordEncoder.encode(password);
-        System.out.println(hashedPassword);
-        this.password = hashedPassword;
+
         return password;
     }
 
@@ -108,4 +114,6 @@ public class User {
     public void setRoles(Collection<Role> roles) {
         this.roles = roles;
     }
+
+
 }

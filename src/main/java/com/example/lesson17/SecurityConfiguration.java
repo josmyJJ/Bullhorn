@@ -40,7 +40,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception{
         http
                 .authorizeRequests() // tells which requests should be authorized.
-                .antMatchers("/", "/h2-console/**").permitAll()
+                .antMatchers("/", "/h2-console/**", "/register").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin().loginPage("/login").permitAll()
