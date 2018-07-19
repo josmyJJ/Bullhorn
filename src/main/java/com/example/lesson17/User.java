@@ -8,7 +8,7 @@ import javax.persistence.*;
 import java.util.Collection;
 
 @Entity
-@Table(name="USER_DATA")
+@Table(name="USER")
 public class User {
 
     @Id

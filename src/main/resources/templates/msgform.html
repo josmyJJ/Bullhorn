@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light|Slabo+27px" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div class="container">
+
+    <div class="bg-light form">
+        <form action="#"
+              th:action="@{/process}"
+              th:object="${message}"
+              method="post">
+
+            <input type="hidden" th:field="*{id}" />
+
+            Content :<textarea placeholder="Type your message!" rows="3" th:field="*{content}" />
+            <span class="text-danger" th:if="${#fields.hasErrors('content')}"
+                  th:errors="*{content}"></span><br/>
+
+            Message Post Date : <input type="date" th:field="*{datePosted}" />
+            <span class="text-danger" th:if="${#fields.hasErrors('datePosted')}" th:errors="*{datePosted}"></span><br />
+
+            Message Sent By: <input type="text" th:field="*{setBy}" placeholder="Type your name!"/>
+            <span class="text-danger" th:if="${#fields.hasErrors('setBy')}" th:errors="*{setBy}"></span><br />
+
+
+            <input class="button" type="submit" value="Submit" />
+        </form>
+
+        <a href="/logout">Logout</a>
+    </div>
+
+</div>
+
+</body>
+</html>

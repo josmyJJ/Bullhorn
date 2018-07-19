@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Bullhorn with security</title>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light|Slabo+27px" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+<nav class="navbar navbar navbar-expand-lg navbar-light bg-dark" th:fragment="main-navbar">
+    <a class="navbar-brand text-info" href="/">
+        &nbsp;BMWOfMC
+    </a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!--</nav>-->
+        <ul class="nav navbar-nav ml-auto">
+            <li class="nav-item text-light active">
+                <a class="nav-link text-info" href="/">Home</a>
+            </li>
+            <li class="nav-item text-light">
+                <a class="nav-link text-info" href="/add">Add a Car</a>
+            </li>
+            <li class="nav-item text-light">
+                <a class="nav-link text-info" href="/addCat">Add a Category</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<footer th:fragment="footer">
+    <div class="footer" align="center">
+        <hr/>
+        <span class="text-muted">&copy; 2018 Josemy Joseph</span>
+    </div>
+</footer>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>

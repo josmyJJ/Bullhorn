@@ -1,0 +1,46 @@
+
+body{
+  background-image: url("../img/foodBack2.jpeg");
+    background-size: cover;
+  /*font-family: 'Slabo 27px', serif;*/
+}
+
+ h2, h3, h4, h5, h6{
+  font-family: 'Shadows Into Light', cursive;
+}
+
+nav{
+  font-family: 'Shadows Into Light', cursive;
+}
+
+.form{
+    padding: 20px;
+    margin: 20px;
+}
+
+.emptySpace{
+    height: 150px;
+}
+
+.space{
+    height: 50px;
+}
+.container{
+    opacity: .9;
+}
+p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /*max-width: 200px;*/
+    max-width: 20ch;
+}
+
+.container .bg-light a.center{
+    text-align: center;
+}
+
+.sandwichImg{
+    width: 340px;
+    margin: 0 auto;
+}

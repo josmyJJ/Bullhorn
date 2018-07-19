@@ -1,4 +1,4 @@
-package com.example.bullhorn;
+package com.example.lesson17;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

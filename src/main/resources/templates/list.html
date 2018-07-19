@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light|Slabo+27px" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<div class="container bg-light ">
+    <div class="my-5 "></div>
+    <div class="my-4 py-5" align="center">
+        <table>
+            <!--<h2>Insecure Page</h2>-->
+            <!--<a href="/secure">Secure Page</a>-->
+            <tr class="text-dark">
+                <th class="pr-3">Content</th>
+                <th class="pr-3">Sent By</th>
+                <th class="pr-3">Date</th>
+            </tr>
+            <tr th:each="message : ${messages}" >
+                <td class="pr-4" th:text="${message.content}"></td>
+                <td class="pr-3" th:text="${message.setBy}"></td>
+                <td class="pr-3" th:text="${message.datePosted}"></td>
+
+                <div sec:authorize="hasAuthority('ADMIN')">
+                    <!-- HOW TO HIDE THE SECTION, THIS CODE NOT WORKING -->
+                    <td>
+                        <a class="pr-3" th:href="@{/update/{id}(id=${message.id})}">Update</a> -
+                        <a class="pr-3" th:href="@{/detail/{id}(id=${message.id})}">Details</a>
+                    </td>
+                </div>
+
+                <div sec:authorize="hasAuthority('USER')">
+                    <td>
+                        <a class="pr-3" th:href="@{/detail/{id}(id=${message.id})}">Details</a>
+                    </td>
+                </div>
+            </tr>
+        </table>
+        <br>
+        <!--<h5>You have to login to add message!</h5>-->
+        <!--<div sec:authorize="isAnonymous()">-->
+            <!--<button class="btn btn-primary"><a class="text-white" href="/login">Login</a></button>-->
+        <!--</div>-->
+        <div sec:authorize="!isAuthenticated()">
+            <!--<button class="btn btn-primary"><a class="text-white" href="/listMsg">Add Message</a></button>-->
+            <button class="btn btn-primary"><a class="text-white" href="/login">Login</a></button>
+        </div>
+
+        <div sec:authorize="isAuthenticated()">
+            <button class="btn btn-primary"><a class="text-white" href="/add">Add Message</a></button>
+            <button class="btn btn-primary"><a class="text-white" href="/logout">Logout</a></button>
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+</body>
+</html>
