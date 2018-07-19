@@ -27,6 +27,7 @@ public class HomeController {
         return "login";
     }
 
+
     @RequestMapping("/base")
     public String baseStyle(){
         return "base";
@@ -89,7 +90,7 @@ public class HomeController {
             userService.saveUser(user);
             model.addAttribute("message", "User Account Successfully Created");
         }
-        return "index";
+        return "redirect:/";
     }
 
 
